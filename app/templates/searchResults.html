@@ -1,0 +1,13 @@
+<div ng-if="restaurants !== null">
+    <div ng-repeat="node in restaurants">
+        <div>
+            {{node.Title}}
+        </div>
+    </div>
+</div>
+
+<div ng-if="restaurants === null">
+    We are sorry. There is no restaurant near {{zipCode}}
+</div>
+
+<a href="#/">Back to search</a>
