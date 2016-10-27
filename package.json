@@ -4,8 +4,8 @@
   "description": "Food searching app",
   "main": "index.js",
   "scripts": {
-    "start": "grunt; http-server dist/",
-    "test": "grunt dev; http-server dist/"
+    "start": "grunt; http-server dist/ -o -S -p 4000",
+    "test": "grunt dev; http-server dist/ -o -S -p 4000"
   },
   "author": "Richard F",
   "license": "ISC",

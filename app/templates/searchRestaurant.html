@@ -1,4 +1,17 @@
+<!--
+Allow searching by location
+Allow selection type of food (e.g. Pizza, Italian, Tapas, etc.)
+Allow sorting by rating or distance
+-->
+
 <div>
-Enter zipcode: <input type="text" ng-model="zipCode">
-    <button type="button" ng-click="submit()">Go!</button>
+  Find: <select ng-model="selectedFoodType" ng-options="x for x in foodTypes"></select>
+</div>
+
+<div>
+  Near: <input type="text" ng-model="zipCode">
+</div>
+
+<div>
+  <button type="button" ng-click="submit()">Search</button>
 </div>
