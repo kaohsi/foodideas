@@ -20,25 +20,20 @@ angular.module('foodIdeas').factory('restaurantFactory', [
             return url;
         }
 
-        function requestData(){
+        function requestData(zipCode){
             var url = buildRequestUrl('yahoo');
 
 
-            var params = { q: "select * from local.search where zip='94085' and query='chinese'",
+            var params = { q: "select * from local.search where zip='"+ zipCode +"' and query='chinese'",
                                             format: 'json',
                             diagnostics: true
 
                           };
-            $http.get(url, {params: params}).then(function(data){
-                //console.lo0g('data', data.data.query.results.Result);
-                console.log(data);
-            }, function(error){
-                console.log('error', error);
-            });
+            return $http.get(url, {params: params});
         }
 
-        service.getRestaurant = function(){
-            requestData();
+        service.getRestaurant = function(zipCode){
+            return requestData(zipCode);
         };
 
         return service;
