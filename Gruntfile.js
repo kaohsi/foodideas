@@ -2,15 +2,29 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    copy: {
+    'string-replace': {
         dist: {
             src: 'app/index.html',
-            dest: 'dist/index.html'
+            dest: 'dist/index.html',
+            options: {
+                replacements: [{
+                    pattern: /(.min.js)/g,
+                    replacement: '.js'
+                }]
+            }
+        }
+    },
+    copy: {
+        files: {
+            cwd: 'app',  
+            src: '**/*.html',
+            dest: 'dist/',
+            expand: true
         }
     },
     concat: {
       options: {
-        separator: ';'
+        separator: '\n\n'
       },
       dist: {
         src: ['app/**/*.js'],
@@ -18,9 +32,9 @@ module.exports = function(grunt) {
       }
     },
     uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-      },
+      //options: {
+      //    banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      //},
       dist: {
         files: {
           'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
@@ -53,10 +67,12 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-string-replace');
 
   grunt.registerTask('test', ['jshint'/*, 'qunit'*/]);
-
+  grunt.registerTask('dev', ['default', 'string-replace']);
   grunt.registerTask('default', ['jshint', /*'qunit',*/ 'copy', 'concat', 'uglify']);
+  
 
 };

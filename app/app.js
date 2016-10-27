@@ -1,5 +1,9 @@
-var app = angular.module("myApp", []);
-app.controller("myCtrl", function($scope) {
-    $scope.firstName = "John";
-    $scope.lastName = "Doe";
-});
+angular.module('foodIdeas', ['ngRoute']);
+
+angular.module('foodIdeas').config(
+    function($routeProvider){
+        $routeProvider.when('/', {
+            template: '<search-restaurant></search-restaurant>'
+        });
+    }
+);

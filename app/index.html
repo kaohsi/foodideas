@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
 
-<div ng-app="myApp" ng-controller="myCtrl">
-{{ firstName + " " + lastName }}
+<script src="foodideas.min.js"></script>
+    
+<div ng-app="foodIdeas">
+    <div ng-view></div>
 </div>
-
-<script src="foodideas.js"></script>
-
-<p>It is recommended that you load the AngularJS library either in the HEAD or at the start of the BODY.</p>
 
 </body>
 </html>
-
