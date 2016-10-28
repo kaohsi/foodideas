@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "grunt; http-server dist/ -o -S -p 4000",
-    "test": "grunt dev; http-server dist/ -o -S -p 4000"
+    "test": "grunt dev; http-server dist/ -S -p 4000"
   },
   "author": "Richard F",
   "license": "ISC",
