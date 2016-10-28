@@ -18,6 +18,6 @@ Allow sorting by rating or distance
   </div>
 
   <div>
-    <button class="search" type="button" ng-focus="submitted = submitted + 1" ng-click="searchRestaurantForm.$valid && submit()">Search</button>
+    <button class="search" type="button" ng-click="submitted = true;searchRestaurantForm.$valid && submit()">Search</button>
   </div>
 </form>
