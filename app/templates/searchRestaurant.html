@@ -4,14 +4,20 @@ Allow selection type of food (e.g. Pizza, Italian, Tapas, etc.)
 Allow sorting by rating or distance
 -->
 
-<div>
-  Find: <select ng-model="selectedFoodType" ng-options="x for x in foodTypes"></select>
-</div>
+<form name="searchRestaurantForm" novalidate>
+  <div ng-show="!searchRestaurantForm.$valid && submitted" class="errorMsg">
+    <span>Food type and zip code are required</span>
+  </div>
 
-<div>
-  Near: <input type="text" ng-model="zipCode">
-</div>
+  <div>
+    Find: <select name="selectedFoodType" ng-model="selectedFoodType" ng-options="x for x in foodTypes" required></select>
+  </div>
 
-<div>
-  <button type="button" ng-click="submit()">Search</button>
-</div>
+  <div>
+    Near: <input ng-class="{isEmpty: !zipCode && submitted}" type="text" name="zipCode" ng-model="zipCode" required>
+  </div>
+
+  <div>
+    <button type="button" ng-focus="submitted = submitted + 1" ng-click="searchRestaurantForm.$valid && submit()">Search</button>
+  </div>
+</form>

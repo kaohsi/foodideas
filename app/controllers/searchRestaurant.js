@@ -5,6 +5,7 @@ angular.module('foodIdeas').controller('searchRestaurant', [
     '$http',
     'restaurantFactory',
     function($scope, $rootScope, $location, $http, restaurantFactory){
+
         function extractFromAdress(components, type){
            for (var i=0; i<components.length; i++)
                for (var j=0; j<components[i].types.length; j++)
@@ -12,7 +13,7 @@ angular.module('foodIdeas').controller('searchRestaurant', [
            return "";
         }
 
-         $scope.foodTypes = ["Select One", "Pizza", "Italian", "Tapas", "Chinese", "Japanese"];
+         $scope.foodTypes = ["Pizza", "Italian", "Tapas", "Chinese", "Japanese"];
 
          $scope.getCurrentZipCode = function(){
            window.navigator.geolocation.getCurrentPosition(function(pos){

@@ -1,4 +1,4 @@
-<div ng-if="restaurants !== null">
+<div ng-if="restaurants.length">
     <div ng-repeat="node in restaurants">
         <div>
             {{node.Name}}
@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div ng-if="restaurants === null">
+<div ng-if="!restaurants.length">
     We are sorry. There is no restaurant near {{zipCode}}
 </div>
 
