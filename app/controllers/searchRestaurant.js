@@ -21,6 +21,7 @@ angular.module('foodIdeas').controller('searchRestaurant', [
                 if (res.status == 200){
                   if (res.data.results.length){
                       var zip = extractFromAdress(res.data.results[0].address_components, "postal_code");
+                      sessionStorage.setItem('currentZipCode', zip);
                       $scope.zipCode = zip;
                   }
                 }
@@ -42,6 +43,10 @@ angular.module('foodIdeas').controller('searchRestaurant', [
              });
          };
 
-         $scope.getCurrentZipCode();
+         if (!sessionStorage.getItem('currentZipCode')){ //Cache zip code in session storage
+            $scope.getCurrentZipCode();
+         } else {
+           $scope.zipCode = sessionStorage.getItem('currentZipCode');
+         }
     }
 ]);
