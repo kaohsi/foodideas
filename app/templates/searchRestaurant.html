@@ -10,11 +10,11 @@ Allow sorting by rating or distance
   </div>
 
   <div>
-    Find: <select class="food-type" name="selectedFoodType" ng-model="selectedFoodType" ng-options="x for x in foodTypes" required></select>
+    <span class="field-title">Find: </span><select class="food-type" name="selectedFoodType" ng-model="selectedFoodType" ng-options="x for x in foodTypes" required></select>
   </div>
 
   <div>
-    Near: <input class="zip-code" ng-class="{'is-empty': !zipCode && submitted}" type="text" name="zipCode" ng-model="zipCode" required>
+    <span class="field-title">Near: </span><input class="zip-code" ng-class="{'is-empty': !zipCode && submitted}" type="text" name="zipCode" ng-model="zipCode" required>
   </div>
 
   <div>
