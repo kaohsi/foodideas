@@ -14,9 +14,20 @@ module.exports = function(grunt) {
             }
         }
     },
+    sass: {                              // Task
+        dist: {                            // Target
+          options: {                       // Target options
+            style: 'expanded',
+            sourcemap: 'none'
+          },
+          files: {                         // Dictionary of files
+            'dist/main.css': 'app/css/main.scss'       // 'destination': 'source'
+          }
+        }
+    },
     copy: {
         files: {
-            cwd: 'app',  
+            cwd: 'app',
             src: '**/*.html',
             dest: 'dist/',
             expand: true
@@ -62,6 +73,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   //grunt.loadNpmTasks('grunt-contrib-qunit');
@@ -72,7 +84,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['jshint'/*, 'qunit'*/]);
   grunt.registerTask('dev', ['default', 'string-replace']);
-  grunt.registerTask('default', ['jshint', /*'qunit',*/ 'copy', 'concat', 'uglify']);
-  
+  grunt.registerTask('default', ['jshint', 'sass', /*'qunit',*/ 'copy', 'concat', 'uglify']);
+
 
 };

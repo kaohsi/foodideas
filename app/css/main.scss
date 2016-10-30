@@ -1,0 +1,45 @@
+
+form .ng-touched.ng-invalid-required,
+form .is-empty
+{
+  border: 1px solid #ff0000;
+}
+
+.error-msg {
+  color: #ff0000;
+  margin-bottom: 5%;
+}
+
+body {
+  background: #fd746c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #fd746c , #ff9068); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #fd746c , #ff9068); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#page-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.food-type {
+  margin-bottom: 5%;
+}
+
+.zip-code {
+  margin-bottom: 5%;
+}
+
+.search {
+  margin-left: 30%;
+}
+
+#restaurant-list {
+  margin-bottom: 10%;
+}
+
+span.field-title {
+  color: #f7e9e6;
+  font-size: 90%;
+}
