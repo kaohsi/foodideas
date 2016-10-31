@@ -55,6 +55,16 @@ module.exports = function(grunt) {
     //qunit: {
       //files: ['test/**/*.html']
     //},
+    karma: {
+        unit: {
+          frameworks: ['jasmine'],
+          singleRun: true,
+          options: {
+            files: ['app/test/**/*.js']
+          },
+           browsers: ['PhantomJS']
+        }
+      },
     jshint: {
       files: ['Gruntfile.js', 'app/**/*.js', 'test/**/*.js'],
       options: {
@@ -81,9 +91,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('test', ['jshint'/*, 'qunit'*/]);
-  grunt.registerTask('dev', ['default', 'string-replace']);
+  grunt.registerTask('test', ['karma'/*, 'qunit'*/]);
+  grunt.registerTask('dev', ['default', 'string-replace', 'karma']);
   grunt.registerTask('default', ['jshint', 'sass', /*'qunit',*/ 'copy', 'concat', 'uglify']);
 
 
