@@ -38,7 +38,10 @@ module.exports = function(grunt) {
         separator: '\n\n'
       },
       dist: {
-        src: ['app/**/*.js'],
+        src: [
+            'app/**/*.js',
+            '!app/test/*.js' //Exclude unit test
+          ],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
@@ -60,7 +63,12 @@ module.exports = function(grunt) {
           frameworks: ['jasmine'],
           singleRun: true,
           options: {
-            files: ['app/test/**/*.js']
+            files: [
+              'bower_components/angular/angular.js',
+              'bower_components/angular-mocks/angular-mocks.js',
+              'app/**/*.js',
+              //'app/test/**/*.js'
+            ]
           },
            browsers: ['PhantomJS']
         }
