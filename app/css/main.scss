@@ -16,6 +16,13 @@ body {
   background: linear-gradient(to left, #fd746c , #ff9068); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+#logo {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+}
+
 #page-wrapper {
   position: fixed;
   top: 50%;
